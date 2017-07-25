@@ -67,6 +67,8 @@ public interface Dataset {
      *
      * @param listener  the object to register.
      */
+    /*@ true;
+    @*/
     public void addChangeListener(DatasetChangeListener listener);
 
     /**

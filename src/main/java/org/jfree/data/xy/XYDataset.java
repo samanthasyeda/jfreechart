@@ -60,6 +60,8 @@ public interface XYDataset extends SeriesDataset {
      *
      * @return The order (never {@code null}).
      */
+    /*@ requires true;
+    @*/
     public DomainOrder getDomainOrder();
 
     /**
@@ -74,6 +76,9 @@ public interface XYDataset extends SeriesDataset {
      *
      * @return The item count.
      */
+    /*@ requires series >= 0;
+    requires series < getSeriesCount();
+    @*/
     public int getItemCount(int series);
 
     /**
@@ -100,6 +105,11 @@ public interface XYDataset extends SeriesDataset {
      *
      * @return The x-value.
      */
+    /*@ requires series >= 0;
+    requires series < getSeriesCount();
+    requires item >= 0;
+    requires item < getItemCount(series);
+    @*/
     public double getXValue(int series, int item);
 
     /**
@@ -112,6 +122,11 @@ public interface XYDataset extends SeriesDataset {
      *
      * @return The y-value (possibly {@code null}).
      */
+    /*@ requires series >= 0;
+    requires series < getSeriesCount();
+    requires item >= 0;
+    requires item < getItemCount(series);
+    @*/
     public Number getY(int series, int item);
 
     /**
@@ -124,6 +139,11 @@ public interface XYDataset extends SeriesDataset {
      *
      * @return The y-value.
      */
+    /*@ requires series >= 0;
+    requires series < getSeriesCount();
+    requires item >= 0;
+    requires item < getItemCount(series);
+    @*/
     public double getYValue(int series, int item);
 
 }

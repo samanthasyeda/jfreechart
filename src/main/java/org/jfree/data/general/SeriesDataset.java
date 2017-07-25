@@ -65,6 +65,8 @@ public interface SeriesDataset extends Dataset {
      *
      * @return The series count.
      */
+    /*@ requires true;
+    @*/
     public int getSeriesCount();
 
     /**
@@ -75,6 +77,9 @@ public interface SeriesDataset extends Dataset {
      *
      * @return The key for the series.
      */
+    /*@ requires series >= 0;
+    requires series < getSeriesCount();
+    @*/
     public Comparable getSeriesKey(int series);
 
     /**

@@ -67,6 +67,11 @@ public interface XYZDataset extends XYDataset {
      *
      * @return The z-value.
      */
+    /*@ requires series >= 0;
+    requires series < getSeriesCount();
+    requires item >= 0;
+    requires item < getItemCount(series);
+    @*/
     public double getZValue(int series, int item);
 
 }

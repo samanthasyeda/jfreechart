@@ -75,6 +75,11 @@ public interface IntervalXYDataset extends XYDataset {
      *
      * @see #getStartX(int, int)
      */
+    /*@ requires series >= 0;
+    requires series < getSeriesCount();
+    requires item >= 0;
+    requires item < getItemCount(series);
+    @*/
     public double getStartXValue(int series, int item);
 
     /**
@@ -100,6 +105,11 @@ public interface IntervalXYDataset extends XYDataset {
      *
      * @see #getEndX(int, int)
      */
+    /*@ requires series >= 0;
+    requires series < getSeriesCount();
+    requires item >= 0;
+    requires item < getItemCount(series);
+    @*/
     public double getEndXValue(int series, int item);
 
     /**
@@ -125,6 +135,11 @@ public interface IntervalXYDataset extends XYDataset {
      *
      * @see #getStartY(int, int)
      */
+    /*@ requires series >= 0;
+    requires series < getSeriesCount();
+    requires item >= 0;
+    requires item < getItemCount(series);
+    @*/
     public double getStartYValue(int series, int item);
 
     /**
@@ -150,6 +165,11 @@ public interface IntervalXYDataset extends XYDataset {
      *
      * @see #getEndY(int, int)
      */
+    /*@ requires series >= 0;
+    requires series < getSeriesCount();
+    requires item >= 0;
+    requires item < getItemCount(series);
+    @*/
     public double getEndYValue(int series, int item);
 
 }

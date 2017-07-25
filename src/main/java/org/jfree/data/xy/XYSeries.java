@@ -503,7 +503,7 @@ public class XYSeries extends Series implements Cloneable, Serializable {
      *                {@link SeriesChangeEvent} is sent to all registered
      *                listeners.
      */
-    /*@ requires item != null
+    /*@ requires item != null;
     @*/
     public void add(XYDataItem item, boolean notify) {
         Args.nullNotPermitted(item, "item");

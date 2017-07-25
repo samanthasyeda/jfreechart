@@ -142,6 +142,9 @@ public class DefaultTableXYDataset extends AbstractIntervalXYDataset
      *
      * @param series  the series ({@code null} not permitted).
      */
+    /*@ requires series != null;
+    requires !series.getAllowDuplicateXValues();
+	@*/
     public void addSeries(XYSeries series) {
         Args.nullNotPermitted(series, "series");
         if (series.getAllowDuplicateXValues()) {
@@ -488,6 +491,8 @@ public class DefaultTableXYDataset extends AbstractIntervalXYDataset
      *
      * @return A boolean.
      */
+    /*@ requires true;
+    @*/
     @Override
     public boolean equals(Object obj) {
         if (obj == this) {

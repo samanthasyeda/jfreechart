@@ -151,6 +151,8 @@ public class XYSeriesCollection extends AbstractIntervalXYDataset
      * @throws IllegalArgumentException if the key for the series is null or
      *     not unique within the dataset.
      */
+    /*@ requires series != null;
+    @*/
     public void addSeries(XYSeries series) {
         Args.nullNotPermitted(series, "series");
         if (getSeriesIndex(series.getKey()) >= 0) {
@@ -300,6 +302,9 @@ public class XYSeriesCollection extends AbstractIntervalXYDataset
      * @throws IllegalArgumentException if {@code series} is not in the
      *     specified range.
      */
+    /*@ requires series >= 0;
+    requires series < getSeriesCount();
+    @*/
     @Override
     public Comparable getSeriesKey(int series) {
         // defer argument checking
@@ -338,6 +343,9 @@ public class XYSeriesCollection extends AbstractIntervalXYDataset
      * @throws IllegalArgumentException if {@code series} is not in the
      *     range {@code 0} to {@code getSeriesCount() - 1}.
      */
+    /*@ requires series >= 0;
+    requires series < getSeriesCount();
+    @*/
     @Override
     public int getItemCount(int series) {
         // defer argument checking
@@ -392,6 +400,11 @@ public class XYSeriesCollection extends AbstractIntervalXYDataset
      *
      * @return The value (possibly {@code null}).
      */
+    /*@ requires series >= 0;
+    requires series < getSeriesCount();
+    requires item >= 0;
+    requires item < getItemCount(series);
+    @*/
     @Override
     public Number getY(int series, int index) {
         XYSeries s = (XYSeries) this.data.get(series);

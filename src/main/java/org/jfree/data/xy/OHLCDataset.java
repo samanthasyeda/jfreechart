@@ -73,6 +73,9 @@ public interface OHLCDataset extends XYDataset {
      *
      * @return The high-value.
      */
+    /*@ requires item >= 0;
+    requires item < getItemCount(series);
+    @*/
     public double getHighValue(int series, int item);
 
     /**
@@ -94,6 +97,9 @@ public interface OHLCDataset extends XYDataset {
      *
      * @return The low-value.
      */
+    /*@ requires item >= 0;
+    requires item < getItemCount(series);
+    @*/
     public double getLowValue(int series, int item);
 
     /**
@@ -157,6 +163,8 @@ public interface OHLCDataset extends XYDataset {
      *
      * @return The volume-value.
      */
+    /*@ requires item >= 0;
+     * @*/
     public double getVolumeValue(int series, int item);
 
 }

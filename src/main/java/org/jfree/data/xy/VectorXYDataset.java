@@ -60,6 +60,11 @@ public interface VectorXYDataset extends XYDataset {
      *
      * @return The x-component of the vector.
      */
+    /*@ requires series >= 0;
+    requires series < getSeriesCount();
+    requires item >= 0;
+    requires item < getItemCount(series);
+    @*/
     public double getVectorXValue(int series, int item);
 
     /**
@@ -70,6 +75,11 @@ public interface VectorXYDataset extends XYDataset {
      *
      * @return The y-component of the vector.
      */
+    /*@ requires series >= 0;
+    requires series < getSeriesCount();
+    requires item >= 0;
+    requires item < getItemCount(series);
+    @*/
     public double getVectorYValue(int series, int item);
 
     /**

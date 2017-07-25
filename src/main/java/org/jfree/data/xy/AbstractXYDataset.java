@@ -72,6 +72,11 @@ public abstract class AbstractXYDataset extends AbstractSeriesDataset
      * @return The value.
      */
     @Override
+    /*@ requires series >= 0;
+    requires series < getSeriesCount();
+    requires item >= 0;
+    requires item < getItemCount(series);
+    @*/
     public double getXValue(int series, int item) {
         double result = Double.NaN;
         Number x = getX(series, item);

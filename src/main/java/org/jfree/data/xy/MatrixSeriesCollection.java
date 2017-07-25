@@ -208,6 +208,8 @@ public class MatrixSeriesCollection extends AbstractXYZDataset
      *
      * @param series the series ({@code null} not permitted).
      */
+    /*@ requires series != null;
+    @*/
     public void addSeries(MatrixSeries series) {
         Args.nullNotPermitted(series, "series");
         // FIXME: Check that there isn't already a series with the same key

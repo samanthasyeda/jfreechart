@@ -78,6 +78,9 @@ public class DateRange extends Range implements Serializable {
      * @param lower  the lower bound ({@code null} not permitted).
      * @param upper  the upper bound ({@code null} not permitted).
      */
+    /*@ requires lower != null;
+    requires upper != null;
+	@*/
     public DateRange(Date lower, Date upper) {
         super(lower.getTime(), upper.getTime());
         this.lowerDate = lower.getTime();
@@ -105,6 +108,8 @@ public class DateRange extends Range implements Serializable {
      *
      * @param other  the other range ({@code null} not permitted).
      */
+    /*@ requires other != null;
+	@*/
     public DateRange(Range other) {
         this(other.getLowerBound(), other.getUpperBound());
     }
